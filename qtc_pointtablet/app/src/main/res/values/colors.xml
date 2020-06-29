@@ -103,6 +103,7 @@
     <color name="colorBBB">#726A95</color>
     <color name="colorCCC">#A0C1B8</color>
     <color name="hinhnen">#F3ECD3</color>
+    <color name="hinhnen_login">#709FB0</color>
     <color name="text">#FF6D4C</color>
     <color name="background_toolbar_home">#709FB0</color>
 </resources>

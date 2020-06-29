@@ -12,6 +12,7 @@ public class FragmentHome extends BaseFragment<FragmentHomeViewInterface, BasePa
     protected void initialize() {
         HomeActivity activity = (HomeActivity) getActivity();
         view.init(activity, this);
+
     }
 
     @Override
@@ -23,4 +24,5 @@ public class FragmentHome extends BaseFragment<FragmentHomeViewInterface, BasePa
     protected BaseParameters getParametersContainer() {
         return null;
     }
+
 }

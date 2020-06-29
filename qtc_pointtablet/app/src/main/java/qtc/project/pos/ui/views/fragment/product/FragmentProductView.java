@@ -1,9 +1,13 @@
 package qtc.project.pos.ui.views.fragment.product;
 
+import android.view.View;
+import android.widget.LinearLayout;
+
 import b.laixuantam.myaarlibrary.base.BaseUiContainer;
 import b.laixuantam.myaarlibrary.base.BaseView;
 import qtc.project.pos.R;
 import qtc.project.pos.activity.HomeActivity;
+import qtc.project.pos.fragment.product.FragmentCategoryProduct;
 import qtc.project.pos.ui.views.fragment.home.FragmentHomeView;
 import qtc.project.pos.ui.views.fragment.home.FragmentHomeViewCallback;
 import qtc.project.pos.ui.views.fragment.home.FragmentHomeViewInterface;
@@ -17,6 +21,17 @@ public class FragmentProductView  extends BaseView<FragmentProductView.UIContain
     public void init(HomeActivity activity, FragmentProductViewCallback callback) {
         this.activity = activity;
         this.callback = callback;
+        
+        onClickItem();
+    }
+
+    private void onClickItem() {
+        ui.layoutDMSP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.addFragment(new FragmentCategoryProduct(),false,null);
+            }
+        });
     }
 
     @Override
@@ -30,5 +45,14 @@ public class FragmentProductView  extends BaseView<FragmentProductView.UIContain
     }
 
     public static class UIContainer extends BaseUiContainer {
+        @UiElement(R.id.layoutDMSP)
+        public LinearLayout layoutDMSP;
+        @UiElement(R.id.layoutDSSP)
+        public LinearLayout layoutDSSP;
+        @UiElement(R.id.layoutQLLH)
+        public LinearLayout layoutQLLH;
+        @UiElement(R.id.layoutDTHH)
+        public LinearLayout layoutDTHH;
+
     }
 }

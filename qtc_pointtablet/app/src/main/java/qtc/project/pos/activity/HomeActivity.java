@@ -33,7 +33,7 @@ public class HomeActivity extends BaseFragmentActivity<HomeActivityViewInterface
 
     private void setLayoutMain() {
         FullScreencall();
-
+        replaceFragment(new FragmentHome(),false,Animation.SLIDE_IN_OUT);
     }
 
     @Override

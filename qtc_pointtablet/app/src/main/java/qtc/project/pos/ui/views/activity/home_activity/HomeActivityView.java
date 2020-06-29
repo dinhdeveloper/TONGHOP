@@ -70,49 +70,49 @@ public class HomeActivityView extends BaseView<HomeActivityView.UIContainer> imp
 
     private void addEventsHeaderNavigationLeft() {
         View headerview = ui.nav_view.getHeaderView(0);
-        LinearLayout layoutHome = headerview.findViewById(R.id.layoutHome);
-        LinearLayout layoutHistory = headerview.findViewById(R.id.layoutHistory);
-        LinearLayout layoutProduct = headerview.findViewById(R.id.layoutProduct);
-        LinearLayout layoutCustomer = headerview.findViewById(R.id.layoutCustomer);
-        LinearLayout layoutLevelCus = headerview.findViewById(R.id.layoutLevelCus);
-        LinearLayout layoutLogout = headerview.findViewById(R.id.layoutLogout);
-
-        layoutHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                callback.onClickItemNav(new FragmentHome());
-                ui.drawer_layout.closeDrawer(GravityCompat.START);
-            }
-        });
-        layoutHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                callback.onClickItemNav(new FragmentOrder());
-                ui.drawer_layout.closeDrawer(GravityCompat.START);
-            }
-        });
-        layoutProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                callback.onClickItemNav(new FragmentProduct());
-                ui.drawer_layout.closeDrawer(GravityCompat.START);
-            }
-        });
-        layoutCustomer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                callback.onClickItemNav(new FragmentCustomer());
-                ui.drawer_layout.closeDrawer(GravityCompat.START);
-            }
-        });
-
-        layoutLevelCus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                callback.onClickItemNav(new FragmentLevelCustomer());
-                ui.drawer_layout.closeDrawer(GravityCompat.START);
-            }
-        });
+//        LinearLayout layoutHome = headerview.findViewById(R.id.layoutHome);
+//        LinearLayout layoutHistory = headerview.findViewById(R.id.layoutHistory);
+//        LinearLayout layoutProduct = headerview.findViewById(R.id.layoutProduct);
+//        LinearLayout layoutCustomer = headerview.findViewById(R.id.layoutCustomer);
+//        LinearLayout layoutLevelCus = headerview.findViewById(R.id.layoutLevelCus);
+//        LinearLayout layoutLogout = headerview.findViewById(R.id.layoutLogout);
+//
+//        layoutHome.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                callback.onClickItemNav(new FragmentHome());
+//                ui.drawer_layout.closeDrawer(GravityCompat.START);
+//            }
+//        });
+//        layoutHistory.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                callback.onClickItemNav(new FragmentOrder());
+//                ui.drawer_layout.closeDrawer(GravityCompat.START);
+//            }
+//        });
+//        layoutProduct.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                callback.onClickItemNav(new FragmentProduct());
+//                ui.drawer_layout.closeDrawer(GravityCompat.START);
+//            }
+//        });
+//        layoutCustomer.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                callback.onClickItemNav(new FragmentCustomer());
+//                ui.drawer_layout.closeDrawer(GravityCompat.START);
+//            }
+//        });
+//
+//        layoutLevelCus.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                callback.onClickItemNav(new FragmentLevelCustomer());
+//                ui.drawer_layout.closeDrawer(GravityCompat.START);
+//            }
+//        });
 //        layoutLogout.setOnClickListener(new View.OnClickListener() {
 //            public void onClick(View v) {
 //                new SweetAlertDialog(activity, SweetAlertDialog.WARNING_TYPE)
