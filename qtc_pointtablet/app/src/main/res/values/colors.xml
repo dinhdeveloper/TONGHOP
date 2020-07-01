@@ -106,4 +106,6 @@
     <color name="hinhnen_login">#709FB0</color>
     <color name="text">#FF6D4C</color>
     <color name="background_toolbar_home">#709FB0</color>
+    <color name="text_filter">#2BB5D1</color>
+    <color name="bg_filter">#F2F2F2</color>
 </resources>

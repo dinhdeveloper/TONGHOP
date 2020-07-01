@@ -94,7 +94,6 @@
                 android:layout_height="29dp"/>
         </LinearLayout>
 
-        <include layout="@layout/custom_level_customer"/>
     </LinearLayout>
 
 

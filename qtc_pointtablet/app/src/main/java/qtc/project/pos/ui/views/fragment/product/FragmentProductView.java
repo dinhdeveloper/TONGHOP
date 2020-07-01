@@ -7,10 +7,8 @@ import b.laixuantam.myaarlibrary.base.BaseUiContainer;
 import b.laixuantam.myaarlibrary.base.BaseView;
 import qtc.project.pos.R;
 import qtc.project.pos.activity.HomeActivity;
-import qtc.project.pos.fragment.product.FragmentCategoryProduct;
-import qtc.project.pos.ui.views.fragment.home.FragmentHomeView;
-import qtc.project.pos.ui.views.fragment.home.FragmentHomeViewCallback;
-import qtc.project.pos.ui.views.fragment.home.FragmentHomeViewInterface;
+import qtc.project.pos.fragment.product.productcategory.FragmentCategoryProduct;
+import qtc.project.pos.fragment.product.productlist.FragmentProductList;
 
 public class FragmentProductView  extends BaseView<FragmentProductView.UIContainer> implements FragmentProductViewInterface {
 
@@ -30,6 +28,13 @@ public class FragmentProductView  extends BaseView<FragmentProductView.UIContain
             @Override
             public void onClick(View view) {
                 activity.addFragment(new FragmentCategoryProduct(),false,null);
+            }
+        });
+
+        ui.layoutDSSP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.addFragment(new FragmentProductList(),false,null);
             }
         });
     }

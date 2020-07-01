@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="165dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:src="@drawable/imagedemo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_marginHorizontal="@dimen/dp5"
+        android:maxLines="1"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:text="ao thun nam"
+        android:textColor="@color/colorAAA"
+        android:textSize="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/dp5"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:text="Mã SP: "
+            android:textColor="@color/dangnhap"
+            android:textSize="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:textStyle="bold"
+            android:text="ao thun nam"
+            android:textColor="@color/text"
+            android:textSize="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    
+</LinearLayout>

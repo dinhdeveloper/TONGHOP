@@ -5,6 +5,7 @@
     android:elevation="@dimen/dp5"
     android:background="@drawable/border_shape_white_layout_search_contact"
     android:layout_marginHorizontal="@dimen/dp20"
+    android:id="@+id/item_category_product"
     android:orientation="horizontal">
 
     <ImageView
