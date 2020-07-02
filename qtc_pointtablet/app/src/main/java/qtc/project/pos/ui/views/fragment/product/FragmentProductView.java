@@ -1,6 +1,7 @@
 package qtc.project.pos.ui.views.fragment.product;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import b.laixuantam.myaarlibrary.base.BaseUiContainer;
@@ -24,17 +25,24 @@ public class FragmentProductView  extends BaseView<FragmentProductView.UIContain
     }
 
     private void onClickItem() {
+        ui.imageNavLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(callback != null)
+                    callback.onClickBackHeader();
+            }
+        });
         ui.layoutDMSP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.addFragment(new FragmentCategoryProduct(),false,null);
+                activity.addFragment(new FragmentCategoryProduct(),true,null);
             }
         });
 
         ui.layoutDSSP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.addFragment(new FragmentProductList(),false,null);
+                activity.addFragment(new FragmentProductList(),true,null);
             }
         });
     }
@@ -58,6 +66,8 @@ public class FragmentProductView  extends BaseView<FragmentProductView.UIContain
         public LinearLayout layoutQLLH;
         @UiElement(R.id.layoutDTHH)
         public LinearLayout layoutDTHH;
+        @UiElement(R.id.imageNavLeft)
+        public ImageView imageNavLeft;
 
     }
 }

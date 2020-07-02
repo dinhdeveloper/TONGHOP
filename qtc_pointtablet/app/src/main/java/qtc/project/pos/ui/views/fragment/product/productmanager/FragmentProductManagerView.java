@@ -26,7 +26,7 @@ public class FragmentProductManagerView extends BaseView<FragmentProductManagerV
         ui.layoutDMSP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.addFragment(new FragmentProductManager(), false, null);
+                activity.addFragment(new FragmentProductManager(), true, null);
             }
         });
     }

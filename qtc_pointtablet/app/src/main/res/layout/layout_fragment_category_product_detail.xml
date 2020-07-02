@@ -28,163 +28,189 @@
 
                 <ImageView
                     android:id="@+id/imageNavLeft"
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:src="@drawable/ic_icon_back" />
 
                 <TextView
+                    android:id="@+id/name_product_category_header"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Cấp Độ Khách Hàng"
                     android:textColor="@color/white"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="24dp"
-                    android:layout_height="24dp"/>
+                    android:layout_height="24dp" />
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout
-        android:orientation="vertical"
+        android:layout_marginTop="@dimen/dp15"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_gravity="center"
-            android:background="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="48dp">
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:background="@color/white">
+
             <TextView
-                android:layout_marginHorizontal="@dimen/dp20"
-                android:textColor="@color/colorAAA"
-                android:layout_gravity="center"
-                android:textStyle="bold"
-                android:text="1. Tên danh mục: "
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/dp20"
+                android:text="1. Tên danh mục: "
+                android:textColor="@color/colorAAA"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <EditText
-            android:layout_marginHorizontal="@dimen/dp20"
-            android:hint="ao thu nam"
-            android:layout_marginVertical="@dimen/dp20"
-            android:background="@color/hinhnen"
+            android:textColor="@color/black"
+            android:id="@+id/name_product_category"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp20"
+            android:layout_marginVertical="@dimen/dp10"
+            android:background="@color/hinhnen"/>
 
         <View
-            android:layout_marginBottom="@dimen/dp10"
-            android:background="@color/colorAAA"
             android:layout_width="match_parent"
-            android:layout_height="1dp"/>
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/dp10"
+            android:background="@color/colorAAA" />
 
         <LinearLayout
-            android:layout_gravity="center"
-            android:background="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="48dp">
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:background="@color/white">
+
             <TextView
-                android:layout_marginHorizontal="@dimen/dp20"
-                android:textColor="@color/colorAAA"
-                android:layout_gravity="center"
-                android:textStyle="bold"
-                android:text="2. Mô tả: "
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/dp20"
+                android:text="2. Mô tả: "
+                android:textColor="@color/colorAAA"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <MultiAutoCompleteTextView
-            android:layout_marginHorizontal="@dimen/dp20"
-            android:hint="ao thu nam"
-            android:background="@color/hinhnen"
+        <EditText
+            android:id="@+id/description_product"
+            android:layout_marginTop="@dimen/dp10"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp20"
+            android:background="@color/hinhnen"/>
 
 
         <View
-            android:layout_marginBottom="@dimen/dp10"
-            android:background="@color/colorAAA"
             android:layout_width="match_parent"
-            android:layout_height="1dp"/>
+            android:layout_height="1dp"
+            android:layout_marginVertical="@dimen/dp10"
+            android:background="@color/colorAAA" />
 
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dp20"
             android:layout_marginTop="@dimen/dp10"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal">
+
             <TextView
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="HÌNH ẢNH"
                 android:textColor="@color/colorAAA"
                 android:textSize="14dp"
-                android:textStyle="bold"
-                android:text="HÌNH ẢNH"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:textStyle="bold" />
 
             <LinearLayout
-                android:background="@drawable/custom_background_chon_file"
-                android:gravity="center"
+                android:id="@+id/choose_file_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:background="@drawable/custom_background_chon_file"
+                android:gravity="center">
+
                 <TextView
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:text="chọn file"
+                    android:layout_marginVertical="4dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="chọn file" />
             </LinearLayout>
         </LinearLayout>
-        <ImageView
-            android:layout_gravity="center"
+
+        <android.support.v7.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/parent_layout"
             android:layout_marginVertical="@dimen/dp20"
-            android:src="@drawable/imagedemo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_gravity="center"
+            android:layout_width="220dp"
+            android:layout_height="130dp"
+            app:cardCornerRadius="@dimen/dp10">
+
+            <ImageView
+                android:id="@+id/image_product"
+                android:scaleType="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:src="@drawable/imageloading"/>
+        </android.support.v7.widget.CardView>
 
         <!--btn-->
         <LinearLayout
             android:id="@+id/layout_update"
-            android:background="@drawable/custom_background_button_login"
-            android:layout_gravity="center"
             android:layout_width="200dp"
-            android:layout_height="40dp">
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/custom_background_button_login">
+
             <TextView
-                android:textSize="14dp"
-                android:textStyle="bold"
-                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:text="Cập nhật"
                 android:textColor="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:textSize="14dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginVertical="@dimen/dp20"
-            android:background="@drawable/custom_background_btn_delete"
-            android:layout_gravity="center"
+            android:id="@+id/layout_delete"
             android:layout_width="100dp"
-            android:layout_height="40dp">
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginVertical="@dimen/dp20"
+            android:background="@drawable/custom_background_btn_delete">
+
             <TextView
-                android:textSize="14dp"
-                android:textStyle="bold"
-                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:text="Xóa"
                 android:textColor="@color/black"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:textSize="14dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </LinearLayout>

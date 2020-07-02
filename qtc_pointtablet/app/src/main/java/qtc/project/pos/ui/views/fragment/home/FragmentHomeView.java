@@ -28,7 +28,7 @@ public class FragmentHomeView  extends BaseView<FragmentHomeView.UIContainer> im
         ui.layoutQLSP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.addFragment(new FragmentProduct(),false,null);
+                activity.addFragment(new FragmentProduct(),true,null);
             }
         });
     }

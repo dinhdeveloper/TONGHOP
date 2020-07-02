@@ -27,10 +27,11 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:layout_gravity="center"
                     android:id="@+id/imageNavLeft"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_menu_24" />
+                    android:src="@drawable/ic_back_24" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -38,7 +39,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Khách Hàng"
+                    android:text="Danh mục sản phẩm"
                     android:textColor="@color/white"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -81,10 +82,6 @@
                     android:hint="Tên danh mục, số thứ tự..."
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-                <ImageView
-                    android:src="@drawable/ic_camera_24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
             <ImageView
@@ -94,7 +91,10 @@
                 android:layout_height="29dp"/>
         </LinearLayout>
 
-        <include layout="@layout/custom_item_category_product"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_category_product"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 

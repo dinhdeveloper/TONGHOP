@@ -3,15 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/hinhnen"
+    android:id="@+id/fragmentProduct"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background_toolbar_home"
+        android:background="@drawable/custom_background_toolbar_product"
         android:minHeight="?attr/actionBarSize"
-        android:paddingRight="8dp">
+        android:paddingRight="12dp">
 
 
         <LinearLayout
@@ -28,9 +29,10 @@
 
                 <ImageView
                     android:id="@+id/imageNavLeft"
+                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_menu_24" />
+                    android:src="@drawable/ic_icon_back" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -38,7 +40,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Khách Hàng"
+                    android:text="Quản lý nhân viên"
                     android:textColor="@color/white"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -47,54 +49,122 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"/>
             </LinearLayout>
-        </LinearLayout>
-    </android.support.v7.widget.Toolbar>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_marginVertical="@dimen/dp20"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginVertical="@dimen/dp5"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="Đây là danh mục quản lý nhân viên mà ta cần và biết để xử lý công việc tốt nhất"
+                android:textColor="@color/white"
+                android:textSize="11dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
             <LinearLayout
-                android:paddingHorizontal="10dp"
+                android:orientation="horizontal"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:orientation="horizontal"
-                android:background="@drawable/custom_background_search"
-                android:layout_width="290dp"
-                android:layout_height="40dp">
-                <ImageView
-                    android:src="@drawable/ic_search_24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                android:paddingHorizontal="@dimen/dp20"
+                android:layout_marginVertical="@dimen/dp20"
+                android:background="#4FFFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
                 <TextView
-                    android:layout_marginHorizontal="5dp"
+                    android:textSize="@dimen/dp20"
+                    android:textColor="@color/white"
+                    android:text="Danh sách nhân viên"
+                    android:textStyle="bold"
                     android:layout_weight="1"
-                    android:hint="Tên sản phẩm, giá bán, giá..."
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <ImageView
-                    android:src="@drawable/ic_camera_24"
+                    android:src="@drawable/ic_icon_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_marginHorizontal="@dimen/dp20"
+            android:orientation="vertical"
+            android:layout_marginVertical="@dimen/dp10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/layoutDSNV"
+                android:layout_marginVertical="@dimen/dp10"
+                android:orientation="horizontal"
+                android:elevation="3dp"
+                android:background="@drawable/custom_background_item_home"
+                android:paddingVertical="18dp"
+                android:paddingHorizontal="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_icon_danhsachnhanvien"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginHorizontal="@dimen/dp20"
+                    android:textSize="@dimen/dp20"
+                    android:layout_weight="1"
+                    android:text="Danh sách nhân viên"
+                    android:textStyle="bold"
+                    android:textColor="@color/dangnhap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_icon_next"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
 
-            <ImageView
-                android:layout_marginLeft="@dimen/dp10"
-                android:src="@drawable/ic_add_24"
-                android:layout_width="29dp"
-                android:layout_height="29dp"/>
-        </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layoutKSLSBH"
+                android:layout_marginVertical="@dimen/dp10"
+                android:orientation="horizontal"
+                android:elevation="3dp"
+                android:background="@drawable/custom_background_item_home"
+                android:paddingVertical="18dp"
+                android:paddingHorizontal="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_icon_kiemsoatlichsubanhang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-    </LinearLayout>
+                <TextView
+                    android:layout_marginHorizontal="@dimen/dp20"
+                    android:textSize="@dimen/dp20"
+                    android:layout_weight="1"
+                    android:text="Kiểm soát lịch sử bán hàng"
+                    android:textStyle="bold"
+                    android:textColor="@color/dangnhap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_icon_next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
 
 

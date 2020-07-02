@@ -10,9 +10,12 @@ import qtc.project.pos.ui.views.fragment.product.FragmentProductViewCallback;
 import qtc.project.pos.ui.views.fragment.product.FragmentProductViewInterface;
 
 public class FragmentProduct extends BaseFragment<FragmentProductViewInterface, BaseParameters> implements FragmentProductViewCallback {
+
+    HomeActivity activity;
+
     @Override
     protected void initialize() {
-        HomeActivity activity = (HomeActivity) getActivity();
+        activity = (HomeActivity) getActivity();
         view.init(activity, this);
     }
 
@@ -24,5 +27,11 @@ public class FragmentProduct extends BaseFragment<FragmentProductViewInterface, 
     @Override
     protected BaseParameters getParametersContainer() {
         return null;
+    }
+
+    @Override
+    public void onClickBackHeader() {
+        if (activity != null)
+            activity.checkBack();
     }
 }

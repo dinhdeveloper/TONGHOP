@@ -4,9 +4,9 @@ public class Consts {
 
     private static final String HOST_DOMAIN = "http://529.vn/";
     private static final String HOST_DEV = "http://ninomotor.qtctek.com/";
-    private static final String LOCALHOST = "http://192.168.100.27:80/api_nino_customer/";
+    private static final String LOCALHOST = "http://192.168.100.27:80/api_pos/";
 
-    public static final String HOST_API = HOST_DEV;
+    public static final String HOST_API = LOCALHOST;
 
     public static final String REST_ENDPOINT = "api/";
     public static final String HEADES = "Authorization:Basic YWRtaW46cXRjdGVrQDEyMwx==";
