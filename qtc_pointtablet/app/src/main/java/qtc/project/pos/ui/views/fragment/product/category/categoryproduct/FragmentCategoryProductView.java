@@ -17,8 +17,10 @@ import qtc.project.pos.R;
 import qtc.project.pos.activity.HomeActivity;
 import qtc.project.pos.adapter.product.ProductCategoryAdapter;
 import qtc.project.pos.fragment.home.FragmentHome;
+import qtc.project.pos.fragment.product.FragmentProduct;
 import qtc.project.pos.fragment.product.FragmentProductManager;
 import qtc.project.pos.fragment.product.productcategory.FragmentCategoryProductDetail;
+import qtc.project.pos.fragment.product.productcategory.FragmentCreateProductCategory;
 import qtc.project.pos.model.ProductCategoryModel;
 
 public class FragmentCategoryProductView extends BaseView<FragmentCategoryProductView.UIContainer> implements FragmentCategoryProductViewInterface {
@@ -41,6 +43,13 @@ public class FragmentCategoryProductView extends BaseView<FragmentCategoryProduc
             public void onClick(View view) {
                 if (callback!=null)
                     callback.setBackProgress();
+            }
+        });
+
+        ui.image_create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.replaceFragment(new FragmentCreateProductCategory(),true,null);
             }
         });
     }
@@ -79,5 +88,8 @@ public class FragmentCategoryProductView extends BaseView<FragmentCategoryProduc
 
         @UiElement(R.id.imageNavLeft)
         public ImageView imageNavLeft;
+
+        @UiElement(R.id.image_create)
+        public ImageView image_create;
     }
 }

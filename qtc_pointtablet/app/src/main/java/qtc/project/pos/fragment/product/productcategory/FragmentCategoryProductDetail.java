@@ -1,14 +1,11 @@
 package qtc.project.pos.fragment.product.productcategory;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 
 import b.laixuantam.myaarlibrary.api.ApiRequest;
 import b.laixuantam.myaarlibrary.api.ErrorApiResponse;
@@ -18,7 +15,7 @@ import b.laixuantam.myaarlibrary.widgets.dialog.alert.KAlertDialog;
 import id.zelory.compressor.Compressor;
 import qtc.project.pos.R;
 import qtc.project.pos.activity.HomeActivity;
-import qtc.project.pos.api.product.ProductCategoryRequest;
+import qtc.project.pos.api.product.productcategory.ProductCategoryUpdateRequest;
 import qtc.project.pos.dependency.AppProvider;
 import qtc.project.pos.model.BaseResponseModel;
 import qtc.project.pos.model.ProductCategoryModel;
@@ -90,9 +87,9 @@ public class FragmentCategoryProductDetail extends BaseFragment<FragmentCategory
                     @Override
                     public void run() {
                         if (compressedImageFile.exists()) {
-                            view.setDataUserImage(compressedImageFile.getAbsolutePath());
+                            view.setDataProductImage(compressedImageFile.getAbsolutePath());
                         } else {
-                            view.setDataUserImage(filePath);
+                            view.setDataProductImage(filePath);
                         }
                     }
                 }, 300);
@@ -118,14 +115,14 @@ public class FragmentCategoryProductDetail extends BaseFragment<FragmentCategory
     public void undateData(ProductCategoryModel categoryModel) {
         if (categoryModel != null) {
             showProgress();
-            ProductCategoryRequest.ApiParams params = new ProductCategoryRequest.ApiParams();
+            ProductCategoryUpdateRequest.ApiParams params = new ProductCategoryUpdateRequest.ApiParams();
             params.type_manager = "update_category";
             params.id_category = categoryModel.getId();
             params.name = categoryModel.getName();
             params.image = categoryModel.getImage();
-            Log.e("AHAHAHA",categoryModel.getImage());
             params.description = categoryModel.getDescription();
-            AppProvider.getApiManagement().call(ProductCategoryRequest.class, params, new ApiRequest.ApiCallback<BaseResponseModel<ProductCategoryModel>>() {
+            params.id_code  = categoryModel.getId_code();
+            AppProvider.getApiManagement().call(ProductCategoryUpdateRequest.class, params, new ApiRequest.ApiCallback<BaseResponseModel<ProductCategoryModel>>() {
                 @Override
                 public void onSuccess(BaseResponseModel<ProductCategoryModel> body) {
                     if (body.getSuccess().equals("true")) {

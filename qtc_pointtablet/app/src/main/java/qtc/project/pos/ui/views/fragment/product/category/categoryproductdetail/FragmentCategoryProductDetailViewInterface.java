@@ -8,7 +8,7 @@ public interface FragmentCategoryProductDetailViewInterface extends BaseViewInte
     void init(HomeActivity activity, FragmentCategoryProductDetailViewCallback callback);
 
     void sendDataToView(ProductCategoryModel model);
-    void setDataUserImage(String outfile);
+    void setDataProductImage(String outfile);
 
     void onBack();
 }

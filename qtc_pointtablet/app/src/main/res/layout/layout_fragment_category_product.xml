@@ -85,6 +85,7 @@
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/image_create"
                 android:layout_marginLeft="@dimen/dp10"
                 android:src="@drawable/ic_add_24"
                 android:layout_width="29dp"

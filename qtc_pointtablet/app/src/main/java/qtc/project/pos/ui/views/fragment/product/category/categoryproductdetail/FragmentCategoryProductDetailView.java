@@ -51,6 +51,7 @@ public class FragmentCategoryProductDetailView extends BaseView<FragmentCategory
                 categoryModel.setName(ui.name_product_category.getText().toString());
                 categoryModel.setDescription(ui.description_product.getText().toString());
                 categoryModel.setImage(user_avata);
+                categoryModel.setId_code(ui.id_product_category.getText().toString());
                 if (callback !=null){
                     callback.undateData(categoryModel);
                 }
@@ -60,7 +61,7 @@ public class FragmentCategoryProductDetailView extends BaseView<FragmentCategory
     }
 
     @Override
-    public void setDataUserImage(String outfile) {
+    public void setDataProductImage(String outfile) {
         user_avata = outfile;
         AppProvider.getImageHelper().displayImage(outfile, ui.image_product, null, R.drawable.imageloading, false);
         changeStateBtnSubmitUpdate(true);
@@ -113,6 +114,9 @@ public class FragmentCategoryProductDetailView extends BaseView<FragmentCategory
 
         @UiElement(R.id.name_product_category)
         public EditText name_product_category;
+
+        @UiElement(R.id.id_product_category)
+        public TextView id_product_category;
 
         @UiElement(R.id.description_product)
         public EditText description_product;

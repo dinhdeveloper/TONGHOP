@@ -42,6 +42,7 @@ import qtc.project.pos.R;
 import qtc.project.pos.fragment.account.profile_manager.FragmentProfileManager;
 import qtc.project.pos.fragment.home.FragmentHome;
 import qtc.project.pos.fragment.product.productcategory.FragmentCategoryProductDetail;
+import qtc.project.pos.fragment.product.productcategory.FragmentCreateProductCategory;
 import qtc.project.pos.ui.views.action_bar.base_main_actionbar.BaseMainActionbarViewInterface;
 import qtc.project.pos.ui.views.activity.home_activity.HomeActivityView;
 import qtc.project.pos.ui.views.activity.home_activity.HomeActivityViewCallback;
@@ -466,6 +467,9 @@ public class HomeActivity extends BaseFragmentActivity<HomeActivityViewInterface
                     if (fragment instanceof FragmentCategoryProductDetail) {
                         ((FragmentCategoryProductDetail) fragment).setImageSelected(selectionResult.get(0));
                     }
+                    if (fragment instanceof FragmentCreateProductCategory){
+                        ((FragmentCreateProductCategory) fragment).setImageSelected(selectionResult.get(0));
+                    }
                 }
             }
         } else if (requestCode == CAMERA_REQUEST) {
@@ -475,6 +479,10 @@ public class HomeActivity extends BaseFragmentActivity<HomeActivityViewInterface
                 if (fragment instanceof FragmentCategoryProductDetail) {
                     if (photoFile != null)
                         ((FragmentCategoryProductDetail) fragment).setImageSelected(photoFile.getAbsolutePath());
+                }
+                if (fragment instanceof FragmentCreateProductCategory) {
+                    if (photoFile != null)
+                        ((FragmentCreateProductCategory) fragment).setImageSelected(photoFile.getAbsolutePath());
                 }
             }
         } else if (requestCode == EMAIL_SEND) {

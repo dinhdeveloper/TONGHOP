@@ -1,15 +1,7 @@
-package qtc.project.pos.api.product;
-
-import android.text.TextUtils;
-
-import java.io.File;
+package qtc.project.pos.api.product.productcategory;
 
 import b.laixuantam.myaarlibrary.api.ApiRequest;
 import b.laixuantam.myaarlibrary.api.BaseApiParams;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import qtc.project.pos.api.request_sample.SampleRequest;
 import qtc.project.pos.helper.Consts;
 import qtc.project.pos.model.BaseResponseModel;
 import qtc.project.pos.model.ProductCategoryModel;
@@ -32,17 +24,6 @@ public class ProductCategoryRequest extends ApiRequest<ProductCategoryRequest.Se
 
     @Override
     protected Call<BaseResponseModel<ProductCategoryModel>> call(ProductCategoryRequest.ApiParams params) {
-
-        MultipartBody.Builder builder = new MultipartBody.Builder();
-        if (!TextUtils.isEmpty(params.image)) {
-            File fileAvatar = new File(params.image);
-            if (fileAvatar.exists()) {
-                RequestBody fileBody = RequestBody.create(MediaType.parse("image/*"), fileAvatar);
-                builder.addFormDataPart("img_default", fileAvatar.getName(), fileBody);
-            }
-        }
-
-        RequestBody requestBody = builder.build();
         params.detect = "product_category_manager";
         return getService().call(params);
     }

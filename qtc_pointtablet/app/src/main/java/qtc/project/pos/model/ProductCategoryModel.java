@@ -7,6 +7,16 @@ public class ProductCategoryModel extends BaseResponseModel{
     private String description;
     private String image;
 
+    public String getId_code() {
+        return id_code;
+    }
+
+    public void setId_code(String id_code) {
+        this.id_code = id_code;
+    }
+
+    private String id_code;
+
     public String getId() {
         return id;
     }

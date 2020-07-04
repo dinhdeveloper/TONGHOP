@@ -28,9 +28,9 @@
 
                 <ImageView
                     android:id="@+id/imageNavLeft"
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:src="@drawable/ic_icon_back" />
 
                 <TextView
@@ -46,76 +46,83 @@
 
                 <ImageView
                     android:layout_width="24dp"
-                    android:layout_height="24dp"/>
+                    android:layout_height="24dp" />
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_marginVertical="@dimen/dp20"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="@dimen/dp20"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:paddingHorizontal="10dp"
+                android:layout_width="290dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
+                android:background="@drawable/custom_background_search"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:background="@drawable/custom_background_search"
-                android:layout_width="290dp"
-                android:layout_height="40dp">
+                android:paddingHorizontal="10dp">
+
                 <ImageView
-                    android:src="@drawable/ic_search_24"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_search_24" />
+
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
-                    android:hint="Tên sản phẩm, giá bán, giá..."
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:hint="Tên sản phẩm, giá bán, giá..." />
+
                 <ImageView
-                    android:src="@drawable/ic_camera_24"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_camera_24" />
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/image_filter"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="@dimen/dp10"
                 android:background="@drawable/custom_background_filter"
                 android:padding="2dp"
-                android:layout_marginLeft="@dimen/dp10"
-                android:src="@drawable/ic_filter"
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
+                android:src="@drawable/ic_filter" />
         </LinearLayout>
 
         <LinearLayout
-            android:visibility="gone"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginBottom="@dimen/dp20"
             android:background="@color/bg_filter"
             android:orientation="vertical"
-            android:layout_width="200dp"
-            android:layout_height="50dp">
+            android:visibility="gone">
 
             <TextView
-                android:textColor="@color/text_filter"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_filter" />
 
         </LinearLayout>
 
         <!--layout-->
-        <include layout="@layout/custom_item_product_in_product_list"/>
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_list_product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 </LinearLayout>
