@@ -6,4 +6,6 @@ public interface FragmentProductListDetailViewCallback {
     void onBackprogress();
 
     void unData(ProductListModel listModel);
+
+    void getDataProductCategory();
 }

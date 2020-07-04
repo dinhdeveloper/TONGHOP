@@ -9,4 +9,6 @@ public interface FragmentCategoryProductDetailViewCallback {
     void showDialogTakePicture();
 
     void undateData(ProductCategoryModel categoryModel);
+
+    void deleteProductCategoryModel(String id);
 }

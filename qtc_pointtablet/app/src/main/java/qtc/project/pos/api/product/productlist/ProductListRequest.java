@@ -40,14 +40,15 @@ public class ProductListRequest  extends ApiRequest<ProductListRequest.Service, 
 
     public static class ApiParams extends BaseApiParams {
         public String detect;
-        public String name;
-        public String id_product;
-        public String category_id;
-        public String id_code;
         public String type_manager;
-        public String description ;
+        public String id_product;
+        public String id_code;
+        public String name;
+        public String description;
         public String barcode ;
-        public String qr_code ;
+        public String category_id ;
         public String quantity_safetystock ;
+        public String qr_code ;
+        public String image ;
     }
 }

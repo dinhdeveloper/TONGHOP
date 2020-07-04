@@ -1,15 +1,20 @@
 package qtc.project.pos.ui.views.fragment.product.productlist.detail;
 
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import b.laixuantam.myaarlibrary.base.BaseUiContainer;
 import b.laixuantam.myaarlibrary.base.BaseView;
 import qtc.project.pos.R;
 import qtc.project.pos.activity.HomeActivity;
+import qtc.project.pos.adapter.product.ProductItemCategoryAdapter;
 import qtc.project.pos.dependency.AppProvider;
 import qtc.project.pos.model.ProductCategoryModel;
 import qtc.project.pos.model.ProductListModel;
@@ -28,6 +33,12 @@ public class FragmentProductListDetailView extends BaseView<FragmentProductListD
         this.callback = callback;
         
         onClick();
+        getDataSpinner();
+    }
+
+    private void getDataSpinner() {
+        if (callback!=null)
+            callback.getDataProductCategory();
     }
 
     @Override
@@ -35,7 +46,6 @@ public class FragmentProductListDetailView extends BaseView<FragmentProductListD
         if (model!=null){
             AppProvider.getImageHelper().displayImage(model.getImage(),ui.image_product,null,R.drawable.imageloading);
             ui.name_product.setText(model.getName());
-            ui.id_product_category.setText(model.getCategory_name());
             ui.id_product.setText(model.getId());
             ui.description_product.setText(model.getDescription());
             ui.tonkho.setText(model.getQuantity_safetystock());
@@ -47,8 +57,8 @@ public class FragmentProductListDetailView extends BaseView<FragmentProductListD
             public void onClick(View view) {
                 ProductListModel listModel = new ProductListModel();
                 listModel.setId(model.getId());
-                listModel.setName(model.getName());
-                listModel
+                listModel.setImage(image_pro);
+                //listModel
                 if (callback !=null){
                     callback.unData(listModel);
                 }
@@ -66,6 +76,11 @@ public class FragmentProductListDetailView extends BaseView<FragmentProductListD
     public void onBack() {
         if (callback != null)
             callback.onBackprogress();
+    }
+
+    @Override
+    public void initDataInSpinner(ArrayList<ProductCategoryModel> list) {
+        ProductItemCategoryAdapter adapter = new ProductItemCategoryAdapter(activity,list);
     }
 
     private void onClick() {
@@ -101,7 +116,7 @@ public class FragmentProductListDetailView extends BaseView<FragmentProductListD
         public EditText id_product;
 
         @UiElement(R.id.id_product_category)
-        public TextView id_product_category;
+        public Spinner id_product_category;
 
         @UiElement(R.id.tonkho)
         public EditText tonkho;

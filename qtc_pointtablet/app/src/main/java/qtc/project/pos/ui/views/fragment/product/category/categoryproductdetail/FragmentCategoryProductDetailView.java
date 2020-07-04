@@ -58,6 +58,14 @@ public class FragmentCategoryProductDetailView extends BaseView<FragmentCategory
             }
         });
 
+        ui.layout_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (callback!=null)
+                    callback.deleteProductCategoryModel(model.getId());
+            }
+        });
+
     }
 
     @Override

@@ -145,4 +145,34 @@ public class FragmentCategoryProductDetail extends BaseFragment<FragmentCategory
             });
         }
     }
+
+    @Override
+    public void deleteProductCategoryModel(String id) {
+        if (id!=null){
+            showProgress();
+            ProductCategoryUpdateRequest.ApiParams params = new ProductCategoryUpdateRequest.ApiParams();
+            params.type_manager = "delete_category";
+            params.id_category = id;
+            AppProvider.getApiManagement().call(ProductCategoryUpdateRequest.class, params, new ApiRequest.ApiCallback<BaseResponseModel<ProductCategoryModel>>() {
+                @Override
+                public void onSuccess(BaseResponseModel<ProductCategoryModel> body) {
+                    if (body.getSuccess().equals("true")) {
+                        dismissProgress();
+                        Toast.makeText(activity, body.getMessage(), Toast.LENGTH_SHORT).show();
+                        view.onBack();
+                    }
+                }
+
+                @Override
+                public void onError(ErrorApiResponse error) {
+                    dismissProgress();
+                }
+
+                @Override
+                public void onFail(ApiRequest.RequestError error) {
+                    dismissProgress();
+                }
+            });
+        }
+    }
 }
