@@ -9,7 +9,13 @@ import b.laixuantam.myaarlibrary.base.BaseUiContainer;
 import b.laixuantam.myaarlibrary.base.BaseView;
 import qtc.project.pos.R;
 import qtc.project.pos.activity.HomeActivity;
+import qtc.project.pos.fragment.customer.FragmentCustomer;
+import qtc.project.pos.fragment.employee.FragmentEmployeeManager;
+import qtc.project.pos.fragment.history.FragmentOrder;
+import qtc.project.pos.fragment.levelcustomer.FragmentLevelCustomer;
+import qtc.project.pos.fragment.order.FragmentOrderManager;
 import qtc.project.pos.fragment.product.FragmentProduct;
+import qtc.project.pos.fragment.supplier.FragmentSupplierManager;
 
 public class FragmentHomeView  extends BaseView<FragmentHomeView.UIContainer> implements FragmentHomeViewInterface{
 
@@ -29,6 +35,40 @@ public class FragmentHomeView  extends BaseView<FragmentHomeView.UIContainer> im
             @Override
             public void onClick(View view) {
                 activity.addFragment(new FragmentProduct(),true,null);
+            }
+        });
+        ui.layoutQLCDKH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.addFragment(new FragmentLevelCustomer(),true,null);
+            }
+        });
+
+        ui.layoutQLKH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.addFragment(new FragmentCustomer(),true,null);
+            }
+        });
+
+        ui.layoutQLNCU.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.addFragment(new FragmentSupplierManager(),true,null);
+            }
+        });
+
+        ui.layoutQLNV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.addFragment(new FragmentEmployeeManager(),true,null);
+            }
+        });
+
+        ui.layoutQLDH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.addFragment(new FragmentOrderManager(),true,null);
             }
         });
     }

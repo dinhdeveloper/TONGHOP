@@ -73,29 +73,34 @@
                 android:layout_width="290dp"
                 android:layout_height="40dp">
                 <ImageView
-                    android:src="@drawable/ic_search_24"
+                    android:src="@drawable/ic_search"
+                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-                <TextView
+                <EditText
+                    android:id="@+id/edit_filter"
+                    android:imeOptions="actionSearch"
+                    android:inputType="none"
+                    android:background="@color/white"
                     android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:hint="Tên danh mục, số thứ tự..."
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-                <ImageView
-                    android:src="@drawable/ic_camera_24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/image_create"
                 android:layout_marginLeft="@dimen/dp10"
                 android:src="@drawable/ic_add_24"
                 android:layout_width="29dp"
                 android:layout_height="29dp"/>
         </LinearLayout>
 
-        <include layout="@layout/custom_item_employee_list"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 

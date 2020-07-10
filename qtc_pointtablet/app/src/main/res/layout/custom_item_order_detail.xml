@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:text="1. Xà phòng life boy"
+        android:id="@+id/name_product"
         android:layout_marginHorizontal="12dp"
         android:layout_marginVertical="@dimen/dp5"
         android:textStyle="bold"
@@ -27,13 +27,13 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:src="@drawable/xaphong"
+            android:id="@+id/image_product"
             android:layout_marginHorizontal="@dimen/dp5"
             android:layout_width="90dp"
             android:layout_height="90dp"/>
 
         <TextView
-            android:text="25,000"
+            android:id="@+id/price_buy"
             android:layout_marginHorizontal="5dp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <TextView
-            android:text="X1"
+            android:id="@+id/quantity_product"
             android:layout_marginHorizontal="5dp"
             android:textStyle="bold"
             android:textColor="@color/text"
@@ -49,14 +49,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <TextView
-            android:text="25,000"
+            android:id="@+id/total_price"
             android:layout_marginHorizontal="5dp"
             android:textStyle="bold"
             android:textColor="@color/colorBBB"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
     </LinearLayout>
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/dp5"
+        android:src="@drawable/ic_add_black_24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

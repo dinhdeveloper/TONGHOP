@@ -12,6 +12,7 @@ import b.laixuantam.myaarlibrary.widgets.superadapter.SuperAdapter;
 import b.laixuantam.myaarlibrary.widgets.superadapter.SuperViewHolder;
 import qtc.project.pos.R;
 import qtc.project.pos.dependency.AppProvider;
+import qtc.project.pos.helper.Consts;
 import qtc.project.pos.model.ProductListModel;
 
 public class ProductListAdapter extends SuperAdapter<ProductListModel> {
@@ -36,7 +37,7 @@ public class ProductListAdapter extends SuperAdapter<ProductListModel> {
         TextView id_product = holder.findViewById(R.id.id_product);
         TextView name_product = holder.findViewById(R.id.name_product);
 
-        AppProvider.getImageHelper().displayImage(item.getImage(),image_product,null,R.drawable.imageloading);
+        AppProvider.getImageHelper().displayImage(Consts.HOST_API+item.getImage(),image_product,null,R.drawable.imageloading);
         id_product.setText(item.getId());
         name_product.setText(item.getName());
 

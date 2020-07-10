@@ -112,7 +112,7 @@ public class FragmentCategoryProductDetail extends BaseFragment<FragmentCategory
     }
 
     @Override
-    public void undateData(ProductCategoryModel categoryModel) {
+    public void updateData(ProductCategoryModel categoryModel) {
         if (categoryModel != null) {
             showProgress();
             ProductCategoryUpdateRequest.ApiParams params = new ProductCategoryUpdateRequest.ApiParams();
@@ -128,8 +128,7 @@ public class FragmentCategoryProductDetail extends BaseFragment<FragmentCategory
                     if (body.getSuccess().equals("true")) {
                         dismissProgress();
                         Toast.makeText(activity, body.getMessage(), Toast.LENGTH_SHORT).show();
-
-                        view.onBack();
+                        view.confirmDialog();
                     }
                 }
 
@@ -159,7 +158,7 @@ public class FragmentCategoryProductDetail extends BaseFragment<FragmentCategory
                     if (body.getSuccess().equals("true")) {
                         dismissProgress();
                         Toast.makeText(activity, body.getMessage(), Toast.LENGTH_SHORT).show();
-                        view.onBack();
+                        view.confirm();
                     }
                 }
 

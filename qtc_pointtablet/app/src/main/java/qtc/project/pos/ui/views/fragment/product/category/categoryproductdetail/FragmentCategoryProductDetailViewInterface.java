@@ -11,4 +11,8 @@ public interface FragmentCategoryProductDetailViewInterface extends BaseViewInte
     void setDataProductImage(String outfile);
 
     void onBack();
+
+    void confirmDialog();
+
+    void confirm();
 }

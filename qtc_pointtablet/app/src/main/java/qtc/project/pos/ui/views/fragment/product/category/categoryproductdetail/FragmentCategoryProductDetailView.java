@@ -1,8 +1,11 @@
 package qtc.project.pos.ui.views.fragment.product.category.categoryproductdetail;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -53,7 +56,7 @@ public class FragmentCategoryProductDetailView extends BaseView<FragmentCategory
                 categoryModel.setImage(user_avata);
                 categoryModel.setId_code(ui.id_product_category.getText().toString());
                 if (callback !=null){
-                    callback.undateData(categoryModel);
+                    callback.updateData(categoryModel);
                 }
             }
         });
@@ -61,8 +64,36 @@ public class FragmentCategoryProductDetailView extends BaseView<FragmentCategory
         ui.layout_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (callback!=null)
-                    callback.deleteProductCategoryModel(model.getId());
+
+                LayoutInflater layoutInflater = activity.getLayoutInflater();
+                View popupView = layoutInflater.inflate(R.layout.alert_dialog_waiting, null);
+                TextView title_text = popupView.findViewById(R.id.title_text);
+                TextView content_text = popupView.findViewById(R.id.content_text);
+                Button cancel_button = popupView.findViewById(R.id.cancel_button);
+                Button custom_confirm_button = popupView.findViewById(R.id.custom_confirm_button);
+
+                title_text.setText("Cảnh báo");
+                content_text.setText("Bạn có muốn xóa danh mục này không?");
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(activity);
+                alert.setView(popupView);
+                AlertDialog dialog = alert.create();
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.show();
+                cancel_button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                custom_confirm_button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (callback!=null)
+                            callback.deleteProductCategoryModel(model.getId());
+                        dialog.dismiss();
+                    }
+                });
             }
         });
 
@@ -79,6 +110,54 @@ public class FragmentCategoryProductDetailView extends BaseView<FragmentCategory
     public void onBack() {
         if (callback != null)
             callback.onBackProgress();
+    }
+
+    @Override
+    public void confirmDialog() {
+        LayoutInflater layoutInflater = activity.getLayoutInflater();
+        View popupView = layoutInflater.inflate(R.layout.alert_dialog_success, null);
+        TextView title_text = popupView.findViewById(R.id.title_text);
+        TextView content_text = popupView.findViewById(R.id.content_text);
+        Button custom_confirm_button = popupView.findViewById(R.id.custom_confirm_button);
+
+        title_text.setText("Xác nhận");
+        content_text.setText("Bạn đã cập nhật thành công!");
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(activity);
+        alert.setView(popupView);
+        AlertDialog dialog = alert.create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+        custom_confirm_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    @Override
+    public void confirm() {
+        LayoutInflater layoutInflater = activity.getLayoutInflater();
+        View popupView = layoutInflater.inflate(R.layout.alert_dialog_success, null);
+        TextView title_text = popupView.findViewById(R.id.title_text);
+        TextView content_text = popupView.findViewById(R.id.content_text);
+        Button custom_confirm_button = popupView.findViewById(R.id.custom_confirm_button);
+
+        title_text.setText("Xác nhận");
+        content_text.setText("Bạn đã xóa danh mục này thành công!");
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(activity);
+        alert.setView(popupView);
+        AlertDialog dialog = alert.create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+        custom_confirm_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
     }
 
     public void changeStateBtnSubmitUpdate(boolean active) {

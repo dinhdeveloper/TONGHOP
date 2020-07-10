@@ -5,7 +5,7 @@ import com.facebook.AccessToken;
 
 public interface LoginViewCallback
 {
-    void onClickLogin(String username, String password, boolean isLoginAdmin);
+    void onClickLogin(String username, String password);
 
     void onClickForgotPassword();
 

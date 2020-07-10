@@ -17,4 +17,6 @@ public interface HomeActivityViewCallback {
     void onClickBottomBarMenuOrder();
 
     void onClickItemNav(Fragment fragment);
+
+    void logOut();
 }

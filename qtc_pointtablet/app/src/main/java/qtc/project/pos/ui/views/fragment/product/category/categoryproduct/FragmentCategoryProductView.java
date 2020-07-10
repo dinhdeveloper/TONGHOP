@@ -1,12 +1,13 @@
 package qtc.project.pos.ui.views.fragment.product.category.categoryproduct;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -15,11 +16,7 @@ import b.laixuantam.myaarlibrary.base.BaseUiContainer;
 import b.laixuantam.myaarlibrary.base.BaseView;
 import qtc.project.pos.R;
 import qtc.project.pos.activity.HomeActivity;
-import qtc.project.pos.adapter.product.ProductCategoryAdapter;
-import qtc.project.pos.fragment.home.FragmentHome;
-import qtc.project.pos.fragment.product.FragmentProduct;
-import qtc.project.pos.fragment.product.FragmentProductManager;
-import qtc.project.pos.fragment.product.productcategory.FragmentCategoryProductDetail;
+import qtc.project.pos.adapter.product.category.ProductCategoryAdapter;
 import qtc.project.pos.fragment.product.productcategory.FragmentCreateProductCategory;
 import qtc.project.pos.model.ProductCategoryModel;
 
@@ -52,6 +49,42 @@ public class FragmentCategoryProductView extends BaseView<FragmentCategoryProduc
                 activity.replaceFragment(new FragmentCreateProductCategory(),true,null);
             }
         });
+
+        //SEARCH
+        ui.edit_filter.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    searchFilter(ui.edit_filter.getText().toString());
+                    return true;
+                }
+                Toast.makeText(activity, "Không có kết quả tìm kiếm!", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+
+        ui.image_filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (ui.edit_filter.getText().toString()!=null){
+                    searchFilter(ui.edit_filter.getText().toString());
+                }
+                else {
+                    Toast.makeText(activity, "Không có kết quả tìm kiếm!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void searchFilter(String toString) {
+        if (callback != null){
+            if (toString!=null){
+                callback.callDataToFilter(toString);
+            }
+            else {
+                callback.callAllData();
+            }
+        }
     }
 
     @Override
@@ -91,5 +124,13 @@ public class FragmentCategoryProductView extends BaseView<FragmentCategoryProduc
 
         @UiElement(R.id.image_create)
         public ImageView image_create;
+
+        @UiElement(R.id.image_filter)
+        public ImageView image_filter;
+
+        @UiElement(R.id.edit_filter)
+        public EditText edit_filter;
+
+
     }
 }

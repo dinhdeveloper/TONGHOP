@@ -1,6 +1,8 @@
 package qtc.project.pos.model;
 
-public class PackageInfoModel {
+import java.io.Serializable;
+
+public class PackageInfoModel implements Serializable {
     private String pack_id;
     private String pack_id_code;
     private String manufacturer_id;

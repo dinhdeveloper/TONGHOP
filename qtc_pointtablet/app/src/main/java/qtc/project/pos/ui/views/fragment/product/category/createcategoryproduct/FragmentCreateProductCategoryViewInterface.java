@@ -8,4 +8,6 @@ public interface FragmentCreateProductCategoryViewInterface extends BaseViewInte
     void setDataProductImage(String image);
 
     void onBack();
+
+    void confirmDialog();
 }

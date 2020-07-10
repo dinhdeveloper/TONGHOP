@@ -5,7 +5,11 @@ import qtc.project.pos.model.ProductListModel;
 public interface FragmentProductListDetailViewCallback {
     void onBackprogress();
 
-    void unData(ProductListModel listModel);
+    void showDialogSelecteImage();
 
-    void getDataProductCategory();
+    void getAllProductCategory();
+
+    void undateData(ProductListModel listModel);
+
+    void deleteProduct(ProductListModel model);
 }

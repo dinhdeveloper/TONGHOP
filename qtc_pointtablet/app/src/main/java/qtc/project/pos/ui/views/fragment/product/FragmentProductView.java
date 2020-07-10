@@ -8,8 +8,10 @@ import b.laixuantam.myaarlibrary.base.BaseUiContainer;
 import b.laixuantam.myaarlibrary.base.BaseView;
 import qtc.project.pos.R;
 import qtc.project.pos.activity.HomeActivity;
+import qtc.project.pos.fragment.product.doitra.FragmentDoiTraHangHoa;
 import qtc.project.pos.fragment.product.productcategory.FragmentCategoryProduct;
 import qtc.project.pos.fragment.product.productlist.FragmentProductList;
+import qtc.project.pos.fragment.product.quanlylohang.FragmentQuanLyLoHang;
 
 public class FragmentProductView  extends BaseView<FragmentProductView.UIContainer> implements FragmentProductViewInterface {
 
@@ -43,6 +45,19 @@ public class FragmentProductView  extends BaseView<FragmentProductView.UIContain
             @Override
             public void onClick(View view) {
                 activity.addFragment(new FragmentProductList(),true,null);
+            }
+        });
+        ui.layoutQLLH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.addFragment(new FragmentQuanLyLoHang(),true,null);
+            }
+        });
+
+        ui.layoutDTHH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.addFragment(new FragmentDoiTraHangHoa(),true,null);
             }
         });
     }

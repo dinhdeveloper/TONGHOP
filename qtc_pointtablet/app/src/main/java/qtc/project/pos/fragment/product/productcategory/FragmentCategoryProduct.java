@@ -21,14 +21,6 @@ import qtc.project.pos.ui.views.fragment.product.category.categoryproduct.Fragme
 public class FragmentCategoryProduct extends BaseFragment<FragmentCategoryProductViewInterface, BaseParameters> implements FragmentCategoryProductViewCallback {
     HomeActivity activity;
 
-//    public static FragmentCategoryProduct newIntance(ProductCategoryModel item) {
-//        FragmentCategoryProduct frag = new FragmentCategoryProduct();
-//        Bundle bundle = new Bundle();
-//        bundle.putSerializable("model", item);
-//        frag.setArguments(bundle);
-//        return frag;
-//    }
-
     @Override
     protected void initialize() {
         activity = (HomeActivity) getActivity();
@@ -86,5 +78,15 @@ public class FragmentCategoryProduct extends BaseFragment<FragmentCategoryProduc
     @Override
     public void onSendData(ProductCategoryModel model) {
         activity.replaceFragment( FragmentCategoryProductDetail.newIntance(model),true,null);
+    }
+
+    @Override
+    public void callAllData() {
+        requestDataProductCategory();
+    }
+
+    @Override
+    public void callDataToFilter(String toString) {
+
     }
 }

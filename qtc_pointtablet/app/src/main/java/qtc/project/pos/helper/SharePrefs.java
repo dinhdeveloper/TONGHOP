@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import java.util.Locale;
 
 import b.laixuantam.myaarlibrary.helper.LanguageHelper;
+import qtc.project.pos.model.EmployeeModel;
 import qtc.project.pos.model.UserResponseModel;
 
 public class SharePrefs {
@@ -445,14 +446,14 @@ public class SharePrefs {
 
     private final Gson gson = new Gson();
 
-    public void saveUserModel(UserResponseModel model) {
+    public void saveUserModel(EmployeeModel model) {
         save(PREF_USER_MODEL, gson.toJson(model));
     }
 
-    public UserResponseModel getUserModel() {
+    public EmployeeModel getUserModel() {
         String json = get(PREF_USER_MODEL, "");
         if (!TextUtils.isEmpty(json)) {
-            return gson.fromJson(json, UserResponseModel.class);
+            return gson.fromJson(json, EmployeeModel.class);
         }
         return null;
     }

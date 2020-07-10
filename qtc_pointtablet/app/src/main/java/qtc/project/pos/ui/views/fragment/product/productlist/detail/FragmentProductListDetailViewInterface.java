@@ -12,7 +12,9 @@ public interface FragmentProductListDetailViewInterface extends BaseViewInterfac
 
     void sendDataToView(ProductListModel model);
     void  setDataProductImage(String image);
-    void onBack();
+    void initViewPopup(ArrayList<ProductCategoryModel> list);
 
-    void initDataInSpinner(ArrayList<ProductCategoryModel> list);
+    void showConfirm();
+
+    void showConfirmDelete();
 }

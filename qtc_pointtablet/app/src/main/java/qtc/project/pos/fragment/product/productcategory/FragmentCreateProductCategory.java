@@ -101,7 +101,7 @@ public class FragmentCreateProductCategory extends BaseFragment<FragmentCreatePr
                 dismissProgress();
                 if (body.getSuccess().equals("true")) {
                     Toast.makeText(activity, "" + body.getMessage(), Toast.LENGTH_SHORT).show();
-                    view.onBack();
+                    view.confirmDialog();
                 }
                 else if (body.getSuccess().equals("false")){
                     Toast.makeText(activity, "" + body.getMessage(), Toast.LENGTH_SHORT).show();

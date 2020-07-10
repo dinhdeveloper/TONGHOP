@@ -166,7 +166,7 @@ public class LoginView extends BaseView<LoginView.UiContainer> implements LoginV
             callback.onClickLogin(ui.edtLoginPhone.getText()
                     .toString(), ui.edtLoginPassowrd
                     .getText()
-                    .toString(), isLoginAdmin);
+                    .toString());
         } else if (TextUtils.isEmpty(ui.edtLoginPhone.getText())) {
             ui.edtLoginPhone.setError("Nhập username");
             ui.edtLoginPhone.requestFocus();

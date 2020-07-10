@@ -16,13 +16,18 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,10 +44,17 @@ import b.laixuantam.myaarlibrary.widgets.dialog.alert.KAlertDialog;
 import b.laixuantam.myaarlibrary.widgets.multiple_media_picker.Gallery;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import qtc.project.pos.R;
-import qtc.project.pos.fragment.account.profile_manager.FragmentProfileManager;
+//import qtc.project.pos.fragment.account.profile_manager.FragmentProfileManager;
+import qtc.project.pos.dependency.AppProvider;
 import qtc.project.pos.fragment.home.FragmentHome;
+import qtc.project.pos.fragment.levelcustomer.FragmentCreateLevelCustomer;
+import qtc.project.pos.fragment.levelcustomer.FragmentLevelCustomerDetail;
 import qtc.project.pos.fragment.product.productcategory.FragmentCategoryProductDetail;
 import qtc.project.pos.fragment.product.productcategory.FragmentCreateProductCategory;
+import qtc.project.pos.fragment.product.productlist.FragmentProductListDetail;
+import qtc.project.pos.fragment.product.quanlylohang.FragmentChiTietLoHang;
+import qtc.project.pos.fragment.product.quanlylohang.FragmentDonTraHang;
+import qtc.project.pos.model.SupplierModel;
 import qtc.project.pos.ui.views.action_bar.base_main_actionbar.BaseMainActionbarViewInterface;
 import qtc.project.pos.ui.views.activity.home_activity.HomeActivityView;
 import qtc.project.pos.ui.views.activity.home_activity.HomeActivityViewCallback;
@@ -61,9 +73,74 @@ public class HomeActivity extends BaseFragmentActivity<HomeActivityViewInterface
     @Override
     protected void initialize(Bundle savedInstanceState) {
         view.init(this, this);
-
         setLayoutMain();
     }
+
+    public void alerUpdate() {
+        LayoutInflater layoutInflater = getLayoutInflater();
+        View popupView = layoutInflater.inflate(R.layout.alert_dialog_success, null);
+        TextView title_text = popupView.findViewById(R.id.title_text);
+        TextView content_text = popupView.findViewById(R.id.content_text);
+        Button custom_confirm_button = popupView.findViewById(R.id.custom_confirm_button);
+
+        title_text.setText("Xác nhận");
+        content_text.setText("Bạn đã cập nhật thành công!");
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+        alert.setView(popupView);
+        AlertDialog dialog = alert.create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+        custom_confirm_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    public void alertSuccess() {
+        LayoutInflater layoutInflater = getLayoutInflater();
+        View popupView = layoutInflater.inflate(R.layout.alert_dialog_success, null);
+        TextView title_text = popupView.findViewById(R.id.title_text);
+        TextView content_text = popupView.findViewById(R.id.content_text);
+        Button custom_confirm_button = popupView.findViewById(R.id.custom_confirm_button);
+
+        title_text.setText("Xác nhận");
+        content_text.setText("Bạn đã xóa sản phẩm thành công!");
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+        alert.setView(popupView);
+        AlertDialog dialog = alert.create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+        custom_confirm_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkBack();
+                dialog.dismiss();
+            }
+        });
+    }
+
+    public void alertDelete() {
+        LayoutInflater layoutInflater = getLayoutInflater();
+        View popupView = layoutInflater.inflate(R.layout.alert_dialog_waiting, null);
+        TextView title_text = popupView.findViewById(R.id.title_text);
+        TextView content_text = popupView.findViewById(R.id.content_text);
+        Button cancel_button = popupView.findViewById(R.id.cancel_button);
+        Button custom_confirm_button = popupView.findViewById(R.id.custom_confirm_button);
+
+        title_text.setText("Cảnh báo");
+        content_text.setText("Bạn có muốn xóa sản phẩm này không?");
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+        alert.setView(popupView);
+        AlertDialog dialog = alert.create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+    }
+
 
     private void setLayoutMain() {
         FullScreencall();
@@ -78,6 +155,16 @@ public class HomeActivity extends BaseFragmentActivity<HomeActivityViewInterface
 //        }else if(){
 //            checkBack();
 //        }
+    }
+
+    public void setDataNhaCungUng(SupplierModel model) {
+        BaseFragment baseFragment = getCurrentFragment();
+        if (baseFragment instanceof FragmentChiTietLoHang) {
+            ((FragmentChiTietLoHang) baseFragment).setDataNhaCungUng(model);
+        }
+        if (baseFragment instanceof FragmentDonTraHang) {
+            ((FragmentDonTraHang) baseFragment).setOnBack();
+        }
     }
 
     private int isShowContainer = 0;
@@ -129,6 +216,13 @@ public class HomeActivity extends BaseFragmentActivity<HomeActivityViewInterface
         replaceFragment((BaseFragment<?, ?>) fragment, false, Animation.SLIDE_IN_OUT);
     }
 
+    @Override
+    public void logOut() {
+        AppProvider.getPreferences().clear();
+        finish();
+        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+    }
+
     public void FullScreencall() {
         if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();
@@ -154,6 +248,7 @@ public class HomeActivity extends BaseFragmentActivity<HomeActivityViewInterface
                 })
                 .show();
     }
+
 
     @Override
     public void onClickBottomBarMenuHome() {
@@ -467,8 +562,17 @@ public class HomeActivity extends BaseFragmentActivity<HomeActivityViewInterface
                     if (fragment instanceof FragmentCategoryProductDetail) {
                         ((FragmentCategoryProductDetail) fragment).setImageSelected(selectionResult.get(0));
                     }
-                    if (fragment instanceof FragmentCreateProductCategory){
+                    if (fragment instanceof FragmentCreateProductCategory) {
                         ((FragmentCreateProductCategory) fragment).setImageSelected(selectionResult.get(0));
+                    }
+                    if (fragment instanceof FragmentLevelCustomerDetail) {
+                        ((FragmentLevelCustomerDetail) fragment).setImageSelected(selectionResult.get(0));
+                    }
+                    if (fragment instanceof FragmentCreateLevelCustomer) {
+                        ((FragmentCreateLevelCustomer) fragment).setImageSelected(selectionResult.get(0));
+                    }
+                    if (fragment instanceof FragmentProductListDetail) {
+                        ((FragmentProductListDetail) fragment).setImageSelected(selectionResult.get(0));
                     }
                 }
             }
@@ -483,6 +587,18 @@ public class HomeActivity extends BaseFragmentActivity<HomeActivityViewInterface
                 if (fragment instanceof FragmentCreateProductCategory) {
                     if (photoFile != null)
                         ((FragmentCreateProductCategory) fragment).setImageSelected(photoFile.getAbsolutePath());
+                }
+                if (fragment instanceof FragmentLevelCustomerDetail) {
+                    if (photoFile != null)
+                        ((FragmentLevelCustomerDetail) fragment).setImageSelected(photoFile.getAbsolutePath());
+                }
+                if (fragment instanceof FragmentCreateLevelCustomer) {
+                    if (photoFile != null)
+                        ((FragmentCreateLevelCustomer) fragment).setImageSelected(photoFile.getAbsolutePath());
+                }
+                if (fragment instanceof FragmentProductListDetail) {
+                    if (photoFile != null)
+                        ((FragmentProductListDetail) fragment).setImageSelected(photoFile.getAbsolutePath());
                 }
             }
         } else if (requestCode == EMAIL_SEND) {

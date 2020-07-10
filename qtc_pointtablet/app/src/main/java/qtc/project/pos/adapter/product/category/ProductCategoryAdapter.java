@@ -1,4 +1,4 @@
-package qtc.project.pos.adapter.product;
+package qtc.project.pos.adapter.product.category;
 
 import android.content.Context;
 import android.view.View;
@@ -12,6 +12,7 @@ import b.laixuantam.myaarlibrary.widgets.superadapter.SuperAdapter;
 import b.laixuantam.myaarlibrary.widgets.superadapter.SuperViewHolder;
 import qtc.project.pos.R;
 import qtc.project.pos.dependency.AppProvider;
+import qtc.project.pos.helper.Consts;
 import qtc.project.pos.model.ProductCategoryModel;
 
 public class ProductCategoryAdapter extends SuperAdapter<ProductCategoryModel> {
@@ -37,7 +38,7 @@ public class ProductCategoryAdapter extends SuperAdapter<ProductCategoryModel> {
         TextView name_product_category = holder.findViewById(R.id.name_product_category);
         TextView description_product = holder.findViewById(R.id.description_product);
 
-        AppProvider.getImageHelper().displayImage(item.getImage(), image_product, null, R.drawable.imageloading);
+        AppProvider.getImageHelper().displayImage(Consts.HOST_API+item.getImage(), image_product, null, R.drawable.imageloading);
         name_product_category.setText(item.getName());
         description_product.setText(item.getDescription());
 

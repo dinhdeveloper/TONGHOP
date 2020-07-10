@@ -6,4 +6,8 @@ public interface FragmentCategoryProductViewCallback {
     void setBackProgress();
 
     void onSendData(ProductCategoryModel model);
+
+    void callAllData();
+
+    void callDataToFilter(String toString);
 }
