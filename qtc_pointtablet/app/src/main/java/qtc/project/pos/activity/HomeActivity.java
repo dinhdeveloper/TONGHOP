@@ -54,6 +54,12 @@ import qtc.project.pos.fragment.product.productcategory.FragmentCreateProductCat
 import qtc.project.pos.fragment.product.productlist.FragmentProductListDetail;
 import qtc.project.pos.fragment.product.quanlylohang.FragmentChiTietLoHang;
 import qtc.project.pos.fragment.product.quanlylohang.FragmentDonTraHang;
+import qtc.project.pos.fragment.report.thongkebanhang.doanhthu_theo_khachhang.FragmentDoanhThuTheoKhachHang;
+import qtc.project.pos.fragment.report.thongkebanhang.tomtatdoanhthu.FragmentFilterTomTatDoanhSo;
+import qtc.project.pos.fragment.report.thongkebanhang.tomtatdoanhthu.FragmentTomTatDoanhThu;
+import qtc.project.pos.fragment.report.thongkebanhang.tomtatdoanhthu.thongke.FragmentThongKe;
+import qtc.project.pos.fragment.report.thongkebanhang.tomtatdoanhthu.tongdoanhthu.FragmentTongDoanhThu;
+import qtc.project.pos.fragment.report.thongkekho.tonkho_vs_doanhthu.FragmentTK_TonKho_VS_DoanhThu;
 import qtc.project.pos.model.SupplierModel;
 import qtc.project.pos.ui.views.action_bar.base_main_actionbar.BaseMainActionbarViewInterface;
 import qtc.project.pos.ui.views.activity.home_activity.HomeActivityView;
@@ -164,6 +170,40 @@ public class HomeActivity extends BaseFragmentActivity<HomeActivityViewInterface
         }
         if (baseFragment instanceof FragmentDonTraHang) {
             ((FragmentDonTraHang) baseFragment).setOnBack();
+        }
+    }
+
+    public void setDataDate(String nam, String thang,int ngay){
+        BaseFragment baseFragment = getCurrentFragment();
+        if (baseFragment instanceof FragmentTongDoanhThu) {
+            ((FragmentTongDoanhThu) baseFragment).filterDataTheoThang(nam,thang,ngay);
+        }
+
+        if (baseFragment instanceof FragmentTK_TonKho_VS_DoanhThu){
+            ((FragmentTK_TonKho_VS_DoanhThu)baseFragment).filterDataDate(nam,thang,ngay);
+        }
+
+        if (baseFragment instanceof FragmentDoanhThuTheoKhachHang) {
+            ((FragmentDoanhThuTheoKhachHang) baseFragment).filterDataTheoThang(nam,thang,ngay);
+        }
+
+        if (baseFragment instanceof FragmentTomTatDoanhThu) {
+            ((FragmentTomTatDoanhThu) baseFragment).onBackProgress();
+        }
+    }
+
+    public void setDataYear(String nam) {
+        BaseFragment baseFragment = getCurrentFragment();
+        if (baseFragment instanceof FragmentThongKe) {
+            ((FragmentThongKe) baseFragment).filterDataYear(nam);
+        }
+
+        if (baseFragment instanceof FragmentDoanhThuTheoKhachHang) {
+            ((FragmentDoanhThuTheoKhachHang) baseFragment).filterDataYear(nam);
+        }
+
+        if (baseFragment instanceof FragmentTomTatDoanhThu) {
+            ((FragmentTomTatDoanhThu) baseFragment).onBackProgress();
         }
     }
 
@@ -611,5 +651,4 @@ public class HomeActivity extends BaseFragmentActivity<HomeActivityViewInterface
             }
         }
     }
-
 }

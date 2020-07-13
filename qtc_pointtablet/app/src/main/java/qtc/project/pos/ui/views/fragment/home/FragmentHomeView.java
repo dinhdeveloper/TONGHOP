@@ -15,6 +15,7 @@ import qtc.project.pos.fragment.history.FragmentOrder;
 import qtc.project.pos.fragment.levelcustomer.FragmentLevelCustomer;
 import qtc.project.pos.fragment.order.FragmentOrderManager;
 import qtc.project.pos.fragment.product.FragmentProduct;
+import qtc.project.pos.fragment.report.FragmentReportManager;
 import qtc.project.pos.fragment.supplier.FragmentSupplierManager;
 
 public class FragmentHomeView  extends BaseView<FragmentHomeView.UIContainer> implements FragmentHomeViewInterface{
@@ -69,6 +70,13 @@ public class FragmentHomeView  extends BaseView<FragmentHomeView.UIContainer> im
             @Override
             public void onClick(View v) {
                 activity.addFragment(new FragmentOrderManager(),true,null);
+            }
+        });
+
+        ui.layoutQLTK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.addFragment(new FragmentReportManager(),true,null);
             }
         });
     }

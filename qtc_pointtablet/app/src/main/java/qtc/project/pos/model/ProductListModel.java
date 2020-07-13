@@ -16,9 +16,13 @@ public class ProductListModel extends BaseResponseModel {
     private String category_id;
     private String quantity_safetystock;
     private String category_name;
+    private PackageInfoModel[] package_info;
+    private StockOutModel[] stock_out;
+
     public PackageInfoModel[] getPackage_info() {
         return package_info;
     }
+    public StockOutModel[] getStockOutModel(){return stock_out;}
 
     public void setPackage_info(PackageInfoModel[] package_info) {
         this.package_info = package_info;
@@ -35,7 +39,21 @@ public class ProductListModel extends BaseResponseModel {
         }
     }
 
-    private PackageInfoModel[] package_info;
+
+    public void setStockOutModel(StockOutModel[] stock_out) {
+        this.stock_out = stock_out;
+    }
+
+    public List<StockOutModel> getListDataStockOutModel() {
+        if (stock_out == null) {
+            return null;
+        }
+        else {
+            List<StockOutModel> list = new ArrayList<>();
+            list.addAll(Arrays.asList(stock_out));
+            return list;
+        }
+    }
 
     public String getId() {
         return id;

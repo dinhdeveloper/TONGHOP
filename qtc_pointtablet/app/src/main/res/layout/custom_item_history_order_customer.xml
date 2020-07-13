@@ -28,7 +28,7 @@
                     android:text="Mã khách hàng: "
                     android:textColor="@color/colorAAA"
                     android:textStyle="bold"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -51,7 +51,7 @@
                     android:text="Khách hàng: "
                     android:textStyle="normal"
                     android:textColor="@color/dangnhap"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -74,7 +74,7 @@
                     android:text="Số điện thoại: "
                     android:textStyle="normal"
                     android:textColor="@color/dangnhap"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
